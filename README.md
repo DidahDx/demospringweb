@@ -1,4 +1,4 @@
-# Demo SpringBoot
+# Demo SpringBoot RestApi
 
 ## Setup Postgres
 
