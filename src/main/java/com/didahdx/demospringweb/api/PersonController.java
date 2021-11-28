@@ -11,8 +11,8 @@ import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
-@RequestMapping("api/v1/person")
-@RestController
+@RequestMapping("api/v1/person") //used to set the path to this rest controller
+@RestController //used to handle rest api request
 public class PersonController {
     private final PersonService personService;
 
@@ -21,27 +21,27 @@ public class PersonController {
         this.personService = personService;
     }
 
-    @PostMapping
+    @PostMapping //post request
     public void addPerson(@RequestBody Person person) {
         personService.addPerson(person);
     }
 
-    @GetMapping
+    @GetMapping //get request
     public List<Person> getAllPeople(){
         return personService.getAllPeople();
     }
 
-    @GetMapping(path = "{id}")
+    @GetMapping(path = "{id}")  //get request with path in url
     public Person getPersonById(@PathVariable("id") UUID id){
         return personService.getPersonById(id).orElse(null);
     }
 
-    @DeleteMapping(path ="{id}")
+    @DeleteMapping(path ="{id}") //delete request with path in url
     public int deletePersonById(@PathVariable("id") UUID id){
         return personService.deletePersonById(id);
     }
 
-    @PutMapping(path = "{id}")
+    @PutMapping(path = "{id}") //put request with path in url
     public int updatePersonById(@PathVariable("id") UUID id,@Validated @NonNull @RequestBody Person person){
         return personService.updatePersonById(id,person);
     }

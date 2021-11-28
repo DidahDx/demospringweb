@@ -9,7 +9,7 @@ public class Person {
     private UUID id;
     @NonNull
     private String name;
-
+    //JsonProperty used to map json properties to java class
     public Person(@JsonProperty("id") UUID id,@JsonProperty("name") String name) {
         this.id = id;
         this.name = name;
